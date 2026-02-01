@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Học Toán 9 theo SGK Bộ GD&ĐT. Miễn phí, offline, cài như app.">
+  <title>Toán Lớp 9</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>📘 TOÁN LỚP 9</h1>
+    <p>Học theo SGK Bộ GD&ĐT – Miễn phí 100%</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>📚 HỌC THEO DẠNG TOÁN</h2>
+      <div class="topic-grid">
+        <div class="topic" onclick="goTo('lessons/ds-ch1-bai6.html')">🔢 Căn bậc hai</div>
+        <div class="topic" onclick="goTo('lessons/hh-ch1-bai1.html')">📐 Hệ thức lượng</div>
+        <div class="topic" onclick="goTo('lessons/ds-ch2-bai1.html')">📈 Hàm số bậc nhất</div>
+        <div class="topic" onclick="goTo('lessons/ds-ch3-bai1.html')">🧮 Hệ phương trình</div>
+        <div class="topic" onclick="goTo('lessons/ds-ch4-bai1.html')">📉 Hàm số y = ax²</div>
+        <div class="topic" onclick="goTo('lessons/hh-ch2-bai1.html')">⭕ Đường tròn</div>
+        <div class="topic" onclick="goTo('lessons/hh-ch3-bai6.html')">🎯 Cung chứa góc</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📝 LUYỆN ĐỀ THI THẬT</h2>
+      <div class="topic-grid">
+        <div class="topic" onclick="goTo('exercises/de-on-thi-vao-10-de-1.html')">Đề 1 – Tổng hợp</div>
+        <div class="topic" onclick="goTo('exercises/de-on-thi-vao-10-de-2.html')">Đề 2 – Nâng cao</div>
+        <div class="topic" onclick="goTo('exercises/de-1-tiet-ch1.html')">Kiểm tra 1 tiết – Chương I</div>
+        <div class="topic" onclick="goTo('exercises/de-kiem-tra-15p-ch1.html')">Kiểm tra 15 phút – Chương I</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📈 TIẾN BỘ HỌC TẬP</h2>
+      <p>✅ Đã học: <strong id="lesson-count">0</strong> bài</p>
+      <p>✅ Đã làm: <strong id="exercise-count">0</strong> đề</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 HSTAI 777 – Hỗ trợ học sinh Việt Nam</p>
+    <p>Chuẩn SGK Bộ GD&ĐT | Miễn phí 100% | Không quảng cáo</p>
+  </footer>
+
+  <script>
+    function goTo(url) {
+      if (url.includes('/lessons/')) localStorage.setItem('toan9_lessons', (parseInt(localStorage.getItem('toan9_lessons') || '0') + 1).toString());
+      else if (url.includes('/exercises/')) localStorage.setItem('toan9_exercises', (parseInt(localStorage.getItem('toan9_exercises') || '0') + 1).toString());
+      window.location.href = url;
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lesson-count').textContent = localStorage.getItem('toan9_lessons') || '0';
+      document.getElementById('exercise-count').textContent = localStorage.getItem('toan9_exercises') || '0';
+    });
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>

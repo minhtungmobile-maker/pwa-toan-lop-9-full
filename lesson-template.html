@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+<header>
+  <button onclick="history.back()">← Quay lại</button>
+  <a href="../index.html">🏠 Trang chủ</a>
+</header>
+
+<main>
+  <h1>{{TITLE}}</h1>
+
+  <section>
+    <h2>1. Lý thuyết</h2>
+    <p>{{THEORY}}</p>
+  </section>
+
+  <section>
+    <h2>2. Ví dụ</h2>
+    <p>{{EXAMPLE}}</p>
+  </section>
+
+  <section>
+    <h2>3. Bài tập</h2>
+    <ul>{{EXERCISES}}</ul>
+  </section>
+</main>
+
+<footer>
+  <button onclick="goNext()">➡️ Bài tiếp theo</button>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
